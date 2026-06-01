@@ -3,129 +3,402 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Humanity Bridge</title>
-<link rel="stylesheet" href="style.css">
+<title>Foodie Express</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#fff;
+}
+
+/* Navbar */
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    background:#ff5722;
+    color:white;
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:bold;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+}
+
+nav ul li{
+    margin-left:20px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:white;
+    font-weight:bold;
+}
+
+/* Hero */
+.hero{
+    height:90vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:linear-gradient(to right,#ff5722,#ff9800);
+    color:white;
+    padding:20px;
+}
+
+.hero-content h1{
+    font-size:55px;
+    margin-bottom:20px;
+}
+
+.hero-content p{
+    font-size:20px;
+    margin-bottom:20px;
+}
+
+.btn{
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    background:white;
+    color:#ff5722;
+    font-size:18px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+}
+
+/* Sections */
+section{
+    padding:80px 8%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:40px;
+    color:#ff5722;
+}
+
+/* Food Cards */
+.food-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:20px;
+    text-align:center;
+}
+
+.price{
+    color:#ff5722;
+    font-size:20px;
+    font-weight:bold;
+    margin:10px 0;
+}
+
+/* Features */
+.features{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.feature-box{
+    background:#fff5f2;
+    padding:25px;
+    text-align:center;
+    border-radius:10px;
+}
+
+/* Stats */
+.stats{
+    background:#ff5722;
+    color:white;
+}
+
+.stats-container{
+    display:flex;
+    justify-content:space-around;
+    flex-wrap:wrap;
+    text-align:center;
+}
+
+.counter{
+    font-size:45px;
+    font-weight:bold;
+}
+
+/* Testimonials */
+.testimonials{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.testimonial{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+/* Contact */
+.contact-form{
+    max-width:600px;
+    margin:auto;
+}
+
+.contact-form input,
+.contact-form textarea{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:1px solid #ddd;
+    border-radius:5px;
+}
+
+.contact-form button{
+    width:100%;
+}
+
+/* Footer */
+footer{
+    background:#222;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+.social{
+    margin-bottom:10px;
+}
+
+.social span{
+    margin:0 10px;
+    cursor:pointer;
+}
+
+@media(max-width:768px){
+    .hero-content h1{
+        font-size:36px;
+    }
+
+    nav{
+        flex-direction:column;
+    }
+
+    nav ul{
+        margin-top:10px;
+    }
+}
+</style>
 </head>
+
 <body>
 
-<header>
-    <nav>
-        <h2>Humanity Bridge</h2>
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#impact">Impact</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-</header>
+<nav>
+    <div class="logo">🍔 Foodie Express</div>
+
+    <ul>
+        <li><a href="#foods">Foods</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
 
 <section class="hero">
     <div class="hero-content">
-        <h1>Bridging Hearts, Changing Lives</h1>
-        <p>Together we can bring hope, education, food, and healthcare to those in need.</p>
-        <button>Donate Now</button>
+        <h1>Delicious Food Delivered To Your Doorstep</h1>
+        <p>Fresh ingredients, fast delivery, and unforgettable taste.</p>
+        <button class="btn">Order Now</button>
     </div>
 </section>
 
-<section id="about" class="section">
-    <h2>About Us</h2>
-    <p>
-        Humanity Bridge is a charity organization dedicated to supporting
-        underprivileged communities through education, healthcare,
-        food distribution, and community development programs.
-    </p>
+<section id="foods">
+    <h2 class="section-title">Popular Foods</h2>
+
+    <div class="food-container">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800" alt="Burger">
+            <div class="card-content">
+                <h3>Burger</h3>
+                <p class="price">₹149</p>
+                <button class="btn">Order</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800" alt="Pizza">
+            <div class="card-content">
+                <h3>Pizza</h3>
+                <p class="price">₹299</p>
+                <button class="btn">Order</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1701579231305-d84d8af9a3fd?w=800" alt="Biryani">
+            <div class="card-content">
+                <h3>Biryani</h3>
+                <p class="price">₹249</p>
+                <button class="btn">Order</button>
+            </div>
+        </div>
+
+    </div>
 </section>
 
-<section id="services" class="section">
-    <h2>Our Services</h2>
+<section id="features">
+    <h2 class="section-title">Why Choose Us?</h2>
 
-    <div class="cards">
-        <div class="card">
-            <h3>Education Support</h3>
-            <p>Providing learning resources and scholarships.</p>
+    <div class="features">
+        <div class="feature-box">
+            <h3>🚚 Fast Delivery</h3>
+            <p>Get your food within minutes.</p>
         </div>
 
-        <div class="card">
-            <h3>Food Distribution</h3>
-            <p>Delivering nutritious meals to families in need.</p>
+        <div class="feature-box">
+            <h3>🥗 Fresh Ingredients</h3>
+            <p>Healthy and quality ingredients.</p>
         </div>
 
-        <div class="card">
-            <h3>Healthcare Assistance</h3>
-            <p>Access to medical support and awareness programs.</p>
+        <div class="feature-box">
+            <h3>💰 Affordable Prices</h3>
+            <p>Best food at the best prices.</p>
         </div>
 
-        <div class="card">
-            <h3>Community Development</h3>
-            <p>Empowering communities through sustainable initiatives.</p>
+        <div class="feature-box">
+            <h3>📞 24/7 Support</h3>
+            <p>Always ready to help customers.</p>
         </div>
     </div>
 </section>
 
-<section id="impact" class="section impact">
-    <h2>Our Impact</h2>
-
-    <div class="stats">
+<section class="stats">
+    <div class="stats-container">
         <div>
-            <h3 class="counter" data-target="5000">0</h3>
-            <p>People Helped</p>
+            <div class="counter" data-target="10000">0</div>
+            <p>Happy Customers</p>
         </div>
 
         <div>
-            <h3 class="counter" data-target="120">0</h3>
-            <p>Communities Served</p>
+            <div class="counter" data-target="500">0</div>
+            <p>Restaurants</p>
         </div>
 
         <div>
-            <h3 class="counter" data-target="300">0</h3>
-            <p>Volunteers</p>
+            <div class="counter" data-target="50000">0</div>
+            <p>Orders Delivered</p>
         </div>
     </div>
 </section>
 
-<section class="section">
-    <h2>Testimonials</h2>
+<section>
+    <h2 class="section-title">Customer Reviews</h2>
 
-    <div class="cards">
-        <div class="card">
-            <p>"Humanity Bridge changed our village through education support."</p>
-            <h4>- Sarah</h4>
+    <div class="testimonials">
+        <div class="testimonial">
+            ⭐⭐⭐⭐⭐
+            <p>Amazing food and quick delivery.</p>
         </div>
 
-        <div class="card">
-            <p>"Their healthcare programs helped many families."</p>
-            <h4>- John</h4>
+        <div class="testimonial">
+            ⭐⭐⭐⭐⭐
+            <p>The best food ordering experience.</p>
+        </div>
+
+        <div class="testimonial">
+            ⭐⭐⭐⭐⭐
+            <p>Fresh food and excellent service.</p>
         </div>
     </div>
 </section>
 
-<section class="section gallery">
-    <h2>Gallery</h2>
+<section id="contact">
+    <h2 class="section-title">Contact Us</h2>
 
-    <div class="gallery-grid">
-        <img src="https://picsum.photos/300/200?1">
-        <img src="https://picsum.photos/300/200?2">
-        <img src="https://picsum.photos/300/200?3">
-    </div>
-</section>
-
-<section id="contact" class="section">
-    <h2>Contact Us</h2>
-
-    <form>
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea placeholder="Your Message"></textarea>
-        <button type="submit">Send Message</button>
+    <form class="contact-form">
+        <input type="text" placeholder="Your Name">
+        <input type="email" placeholder="Your Email">
+        <textarea rows="5" placeholder="Your Message"></textarea>
+        <button class="btn">Send Message</button>
     </form>
 </section>
 
 <footer>
-    <p>Follow Us: Facebook | Instagram | Twitter</p>
-    <p>© 2026 Humanity Bridge. All Rights Reserved.</p>
+    <div class="social">
+        <span>Facebook</span>
+        <span>Instagram</span>
+        <span>Twitter</span>
+    </div>
+
+    <p>© 2026 Foodie Express. All Rights Reserved.</p>
 </footer>
 
-<script src="script.js"></script>
+<script>
+const counters = document.querySelectorAll('.counter');
+
+counters.forEach(counter => {
+
+    const updateCounter = () => {
+
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+
+        const increment = target / 100;
+
+        if(count < target){
+            counter.innerText = Math.ceil(count + increment);
+            setTimeout(updateCounter,20);
+        } else {
+            counter.innerText = target;
+        }
+    };
+
+    updateCounter();
+});
+</script>
+
 </body>
 </html>
