@@ -1,19 +1,21 @@
-const menuToggle = document.querySelector('.menu-toggle');
-const header = document.querySelector('.header');
-const navLinks = document.querySelectorAll('.nav a');
+const counters = document.querySelectorAll('.counter');
 
-if (menuToggle && header) {
-  menuToggle.addEventListener('click', () => {
-    const isOpen = header.classList.toggle('menu-open');
-    menuToggle.setAttribute('aria-expanded', isOpen);
-  });
+counters.forEach(counter => {
 
-  navLinks.forEach((link) => {
-    link.addEventListener('click', () => {
-      if (header.classList.contains('menu-open')) {
-        header.classList.remove('menu-open');
-        menuToggle.setAttribute('aria-expanded', 'false');
-      }
-    });
-  });
-}
+    const updateCounter = () => {
+
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+
+        const increment = target / 100;
+
+        if(count < target){
+            counter.innerText = Math.ceil(count + increment);
+            setTimeout(updateCounter, 20);
+        } else {
+            counter.innerText = target;
+        }
+    };
+
+    updateCounter();
+});
